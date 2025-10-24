@@ -1,0 +1,12 @@
+.main,.page2,.page3{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: aliceblue;
+}
+
+.box{
+    width: 25vw;
+    height: 25vh;
+    background-color: green;
+}
