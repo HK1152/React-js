@@ -1,0 +1,18 @@
+start
+
+const [Title, setTitle] = useState("");  // is me data null hai
+
+
+vo data input ke value={Title} me gaya matalab input box me bhi null milega
+
+
+ab jab us input me type karo ge to kuchh bhi type nahi hoga
+
+
+uske sathe or aek chiz ki
+ki onChange={(e)=>{setTitle(e.target.value)}} matalab "e" me jo value ati hai use firse  setTitle(e.target.value) me dal diya
+
+matlab {Title} me update hop jaae gaya
+
+
+this are two way data

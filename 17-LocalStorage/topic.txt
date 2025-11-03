@@ -1,0 +1,38 @@
+** jab ham koi data ko locakStorage pe le jate hai to koi variable me dalne ki jarurat nahi hoti **
+
+
+
+localStorage.setItem('kavy',1152)
+jab data ko localStorage me le jana ho tab (key,value) ke form me dalte hai
+
+
+
+const store= localStorage.getItem('kavy')
+
+jab data localStorage se lena ho to (key) ke jariae lete hai
+
+
+ localStorage.removeItem('kavy')
+ jab use localStorage se remove karna ho 
+
+ localStorage.clear()
+ jab all localStorage clear karna ho
+
+
+
+
+ localStorage.setItem('obj',JSON.stringify(obj))
+
+ ham jo data localStorage me bhej rahe hai vo string formet me ja raha hai 
+ to use obj formet me bhejne ke liye
+
+
+
+ const useobj = JSON.parse(localStorage.getItem('obj'))
+
+ vapas obj formet me lane ke liye
+ 
+
+
+
+

@@ -35,7 +35,7 @@ function App() {
     <h1>{user.name}, {user.code}</h1>
      <button onClick={click}>click kar</button>
      <br /><br />
-     <h1>{arr} </h1>
+     <h1>{arr}</h1>
      <button onClick={changeArr}>fir idhar click kar</button>
 
 

@@ -1,0 +1,102 @@
+ <BrowserRouter> 
+ <app />
+ </BrowserRouter> 
+ 
+ main part jo main.jsx me dalna hota hai
+
+
+
+
+
+
+
+
+
+ <Routes>
+        <Route path='/' element={<Home />}
+        <Route path='/about' element={<about />}  
+ </Routes>
+
+ Router ke andar route dala hota hai
+ kesa pathhoga vo or kaha pe jane pe hoga vo
+ ex.. jab home.jsx me jau to normal jo hai vo rahe http://localhost:5173()
+ jab about.jsx me jau to kuchh aesa dikhe (http://localhost:5173/about)
+
+
+
+
+
+
+ <Link to={'/'}>Home</Link>
+<Link  to={'/about'}>About</Link>
+
+vo Route kiye huae path pe jane ke liye
+
+
+
+
+
+
+
+
+
+<Route path='/prodect' element={<Prodect />} >
+            <Route path='men' element={<Men />}></Route>
+            <Route path='women' element={<Women />}></Route>
+</Route>
+
+jab nested Routes banana ho tab
+
+
+
+
+
+
+
+
+   <Link to={'/prodect/men'}>Men</Link>
+    <Link to={'/prodect/women'}>Women</Link>
+ 
+    <Outlet /> 
+
+jab iska parant Route ho tab aese likhte hai
+
+
+
+
+
+
+
+
+<Route path='/course' element={<Course />} /> // real
+<Route path='/course/:id' element={<CourseDetails />} />  //error path
+
+jab koi dusara kuchh type karde to <CourseDetails />
+or vo sab :id me store hoga 
+**iske liye real path hona jaruri hai**
+
+
+
+
+
+
+
+
+  const params = useParams(); // search bar me jo id lagai hai(cours/:id) to us id me jo hai vo dekhne ke liye
+  return 
+    <div>{params.id} is Not found</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<Route path='*' element={<NotFound />} />
+
+jab koi alag path de de tab 

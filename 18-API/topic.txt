@@ -1,0 +1,50 @@
+async function data() {
+  const use = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+} 
+
+jab ham data ko fetch karate hai to wo panding me pada rehta hai
+to use async karne le liye
+
+
+
+
+
+const usedata = await uses.json();
+
+usme jo data hai use json formet me show karne ke liye
+
+
+
+
+
+
+axios
+
+cmd : npm i axios
+import axios from 'axios'
+
+
+normal process me process me thodak long code ho raha hai
+to ham axios package ka use kare ge 
+
+
+
+
+const data3 = async ()=>{
+  const usex =await axios.get('https://jsonplaceholder.typicode.com/todos/3')
+  console.log(usex);
+  console.log(usex.data);
+}
+
+
+is me data  get karana hota hai
+
+
+
+
+const data4 = async ()=>{
+  const {data} =await axios.get('https://jsonplaceholder.typicode.com/todos/4')
+  console.log(data);
+
+}
+or ap dairect use kar sakte hai
