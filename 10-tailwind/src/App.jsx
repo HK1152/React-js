@@ -1,19 +1,36 @@
 import { useState } from 'react'
-
 import './App.css'
+import Hero from './Components/hero'
+import Section2 from './Components/section2'
+import ChangeButton from './Components/changeBUtton'
+import Table from './Components/Table-of-contents'
+import TableStar from './Components/table-star'
+import Screencasts from './Components/Screencasts'
+import Resources from './Components/Resources'
+import Pricing from './Components/Pricing'
+import Author from './Components/Author'
+import Footer from './Components/footer'
 
 function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <button className="bg-blue-500 text-white font-bold py-2 px-4 rounded">
-        done
-      </button>
-      <div className="mt-4 border p-4 rounded shadow-lg m-5">
-        <p className="text-gray-600">This is a simple Tailwind CSS setup with Vite.</p>
-      </div>
-      <input type="text" className="border border-gray-300 p-2 rounded" />
+     <Hero />
+     <Section2 />
+   
+     
+      <ChangeButton />
+    
+     <div>
+      <Table />
+      <TableStar />
+     </div>
+     
+     <Screencasts />
+     <Resources />
+      <Pricing />
+      <Author />
+      <Footer />
     </>
   )
 }
