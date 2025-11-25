@@ -1,0 +1,21 @@
+/* App-level UI tweaks used alongside Tailwind utilities */
+
+html, body, #root {
+	height: 100%;
+}
+
+body {
+	font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	background-color: #f8fafc;
+}
+
+/* small shadow for cards */
+.card-shadow {
+	box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+/* nice subtle focus for inputs when tailwind isn't present */
+input:focus {
+	outline: none;
+	box-shadow: 0 0 0 4px rgba(99,102,241,0.08);
+}
