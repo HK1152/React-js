@@ -1,33 +1,50 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import CardsList from './Components/CardsList'
+import EditCard from './Components/EditCard'
+import Header from './Components/Header'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [editingCard, setEditingCard] = useState(null)
+  const [refreshKey, setRefreshKey] = useState(0)
+
+  const handleSave = (updatedData) => {
+    const storedMeals = JSON.parse(localStorage.getItem("meals") || "[]");
+    const updatedMeals = storedMeals.map((meal) => {
+      if (meal.idMeal === updatedData.id) {
+        return {
+          ...meal,
+          strMeal: updatedData.title,
+          strArea: updatedData.description,
+        };
+      }
+      return meal;
+    });
+    localStorage.setItem("meals", JSON.stringify(updatedMeals));
+    setEditingCard(null);
+    setRefreshKey((prev) => prev + 1);
+  };
+
+  const handleDelete = (id) => {
+    const storedMeals = JSON.parse(localStorage.getItem("meals") || "[]");
+    const updatedMeals = storedMeals.filter((meal) => meal.idMeal !== id);
+    localStorage.setItem("meals", JSON.stringify(updatedMeals));
+    setRefreshKey((prev) => prev + 1);
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <CardsList key={refreshKey} onEdit={setEditingCard} onDelete={handleDelete} />
+      {editingCard && (
+        <EditCard 
+          id={editingCard.id}
+          title={editingCard.title} 
+          description={editingCard.description}
+          onCancel={() => setEditingCard(null)}
+          onSave={handleSave}
+        />
+      )}
     </>
   )
 }
