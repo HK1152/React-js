@@ -11,7 +11,6 @@ function Card({ name, price, img }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Image Container */}
       <div className='relative overflow-hidden aspect-4/3'>
         <img 
           src={img} 
@@ -19,7 +18,6 @@ function Card({ name, price, img }) {
           className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-110'
         />
         
-        {/* Overlay Actions */}
         <div className={`absolute inset-0 bg-black/40 flex items-center justify-center gap-3 transition-opacity duration-300 ${
           isHovered ? 'opacity-100' : 'opacity-0'
         }`}>
@@ -36,13 +34,11 @@ function Card({ name, price, img }) {
           </button>
         </div>
 
-        {/* Sale Badge */}
         <div className='absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold'>
           New
         </div>
       </div>
 
-      {/* Product Info */}
       <div className='p-4'>
         <h3 className='text-lg font-semibold text-gray-800 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors'>
           {name}
@@ -63,7 +59,6 @@ function Card({ name, price, img }) {
           </button>
         </div>
 
-        {/* Rating */}
         <div className='flex items-center gap-1 mt-3'>
           {[...Array(5)].map((_, i) => (
             <svg key={i} className='w-4 h-4 fill-yellow-400' viewBox='0 0 20 20'>

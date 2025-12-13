@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ChevronDown, ChevronUp, Filter, X } from "lucide-react";
 
-function LeftControlar({categories, setCategories, range, setRange, brands, setBrands}) {
+function LeftControlar({categories, setCategories, range, setRange, brands, setBrands, priceRange, setPriceRange}) {
     const [expandedSections, setExpandedSections] = useState({
       categories: true,
       price: true,
@@ -37,9 +37,14 @@ function LeftControlar({categories, setCategories, range, setRange, brands, setB
       setCategories([]);
       setBrands([]);
       setRange(50000);
+      setPriceRange(null);
     };
 
-    const activeFiltersCount = categories.length + brands.length + (range < 50000 ? 1 : 0);
+    const handlePriceRangeClick = (min, max) => {
+      setPriceRange({ min, max });
+    };
+
+    const activeFiltersCount = categories.length + brands.length + (range < 50000 ? 1 : 0) + (priceRange ? 1 : 0);
 
     return (
       <div className="w-80 bg-white rounded-xl shadow-lg p-6 sticky top-24 h-fit">
@@ -133,6 +138,31 @@ function LeftControlar({categories, setCategories, range, setRange, brands, setB
               </div>
             </div>
           )}
+
+
+          <div className="w-70 h-auto flex flex-wrap gap-x-2 gap-y-2 mt-3 text-sm">
+            {[
+              { min: 0, max: 5000, label: '₹0-₹5000' },
+              { min: 5000, max: 10000, label: '₹5000-₹10000' },
+              { min: 10001, max: 20000, label: '₹10001-₹20000' },
+              { min: 20001, max: 30000, label: '₹20001-₹30000' },
+              { min: 30001, max: 40000, label: '₹30001-₹40000' },
+              { min: 40001, max: 50000, label: '₹40001-₹50000' },
+              { min: 50001, max: 60000, label: '₹50001-₹60000' }
+            ].map((rangeBtn) => (
+              <button
+                key={rangeBtn.label}
+                onClick={() => handlePriceRangeClick(rangeBtn.min, rangeBtn.max)}
+                className={`border rounded-lg px-3 py-1 transition-all ${
+                  priceRange?.min === rangeBtn.min && priceRange?.max === rangeBtn.max
+                    ? 'bg-blue-600 text-white border-blue-600'
+                    : 'border-gray-300 hover:border-blue-600 hover:text-blue-600'
+                }`}
+              >
+                {rangeBtn.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Brands Section */}

@@ -3,10 +3,8 @@ import { Facebook, Twitter, Instagram, Mail, Phone, MapPin, Heart } from 'lucide
 function Footer() {
   return (
     <footer className='bg-gray-900 text-gray-300'>
-      {/* Main Footer */}
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
-          {/* Company Info */}
           <div className='space-y-4'>
             <img className='h-10 w-auto' src="src/Image/01.png" alt="Logo" />
             <p className='text-sm text-gray-400'>
@@ -25,7 +23,6 @@ function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className='text-white font-semibold text-lg mb-4'>Quick Links</h3>
             <ul className='space-y-2'>
@@ -37,7 +34,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Customer Service */}
           <div>
             <h3 className='text-white font-semibold text-lg mb-4'>Customer Service</h3>
             <ul className='space-y-2'>
@@ -49,7 +45,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h3 className='text-white font-semibold text-lg mb-4'>Contact Us</h3>
             <ul className='space-y-3'>
@@ -69,7 +64,6 @@ function Footer() {
           </div>
         </div>
 
-        {/* Newsletter */}
         <div className='mt-12 pt-8 border-t border-gray-800'>
           <div className='max-w-md mx-auto text-center'>
             <h3 className='text-white font-semibold text-lg mb-2'>Subscribe to Our Newsletter</h3>
@@ -88,7 +82,6 @@ function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className='border-t border-gray-800'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6'>
           <div className='flex flex-col md:flex-row justify-between items-center gap-4'>

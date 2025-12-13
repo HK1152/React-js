@@ -25,13 +25,11 @@ function Header({ SearchValue, setSearchValue }) {
         }`}>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
                 <div className='flex justify-between items-center py-4'>
-                    {/* Logo */}
                     <div className='flex items-center'>
                         <img className='h-10 w-auto hover:scale-105 transition-transform cursor-pointer' 
                              src="src/Image/01.png" alt="Logo" />
                     </div>
 
-                    {/* Desktop Navigation */}
                     <nav className='hidden md:flex gap-8 text-base font-medium'>
                         {['Home', 'Product', 'Shop', 'About Us'].map((item) => (
                             <a key={item} href="#" 
@@ -42,9 +40,7 @@ function Header({ SearchValue, setSearchValue }) {
                         ))}
                     </nav>
 
-                    {/* Actions */}
                     <div className='flex items-center gap-4'>
-                        {/* Search */}
                         <div className='flex items-center'>
                             <button 
                                 onClick={(e) => { e.preventDefault(); setShowSearch(s => !s); }} 
@@ -65,24 +61,20 @@ function Header({ SearchValue, setSearchValue }) {
                             )}
                         </div>
 
-                        {/* Wishlist */}
                         <button className='hidden sm:block p-2 hover:bg-gray-100 rounded-full transition-colors relative group'>
                             <Heart className='w-5 h-5 text-gray-700 group-hover:text-red-500 transition-colors' />
                             <span className='absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center'>0</span>
                         </button>
 
-                        {/* Cart */}
                         <button className='hidden sm:block p-2 hover:bg-gray-100 rounded-full transition-colors relative group'>
                             <ShoppingCart className='w-5 h-5 text-gray-700 group-hover:text-blue-600 transition-colors' />
                             <span className='absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center'>0</span>
                         </button>
 
-                        {/* Login Button */}
                         <button className='hidden sm:block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-all hover:shadow-lg transform hover:-translate-y-0.5'>
                             Log in
                         </button>
 
-                        {/* Mobile Menu Button */}
                         <button 
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                             className='md:hidden p-2 hover:bg-gray-100 rounded-full transition-colors'>
@@ -91,7 +83,6 @@ function Header({ SearchValue, setSearchValue }) {
                     </div>
                 </div>
 
-                {/* Mobile Menu */}
                 {mobileMenuOpen && (
                     <div className='md:hidden py-4 border-t animate-fadeIn'>
                         <nav className='flex flex-col gap-4'>
