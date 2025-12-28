@@ -24,7 +24,9 @@ const studentSlice=createSlice({
         })
         .addCase(updateStudent.fulfilled,(state, action)=>{
             const index=state.list.findIndex((student)=>student.id===action.payload.id)
-            state.list[index]={...state.list[index],...action.payload.data}
+            if (index !== -1) {
+                state.list[index]={...state.list[index], name: action.payload.name}
+            }
         })
     }
 })
