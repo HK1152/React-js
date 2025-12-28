@@ -1,0 +1,14 @@
+npm install --save-dev json-server
+
+npx json-server --watch api.json --port 3000
+
+
+api : http://localhost:3000/books
+
+
+
+
+npm install tailwindcss @tailwindcss/vite
+npm install framer-motion
+
+npm install axios

@@ -1,25 +1,137 @@
-import React from "react";
-// import "./App.css";
-import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement, reset } from "./redux/counterSlice";
 
+
+import React, { useState } from 'react'
+import { addTask, updateTask, deleteTask } from './redux/TaskSlice'
+import { useSelector, useDispatch } from 'react-redux'
+import './index.css'
 function App() {
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
+
+  const [task, settask] = useState("")
+  const [editIndex, seteditIndex] = useState(null)
+  const [updateText, setupdateText] = useState("")
+
+
+  //useselector
+  const tasks = useSelector((state) => { return state.tasks.list })
+
+  const dispatch = useDispatch()
+
+  const handleAdd = () => {
+
+    if (task.trim() == "") {
+      return ""
+    }
+    dispatch(addTask(task))
+
+    settask("")
+
+  }
+
+  //handle update
+  const handleUpdate = (index) => {
+    dispatch(updateTask({ index, newText: updateText }))
+    seteditIndex(null)
+    setupdateText("")
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleAdd()
+    }
+  }
+
+  const handleEditKeyPress = (e, index) => {
+    if (e.key === 'Enter') {
+      handleUpdate(index)
+    } else if (e.key === 'Escape') {
+      seteditIndex(null)
+      setupdateText("")
+    }
+  }
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-gray-100">
-      <h1 className="text-center font-bold">Redux Toolkit Counter App</h1>
+    <div className="app-container">
+      <header className="app-header">
+        <h1 className="app-title text-xl">✨ My Tasks</h1>
+        <p className="app-subtitle">Stay organized and productive</p>
+      </header>
 
-      <h2 className="text-3xl font-bold">{count}</h2>
+      <div className="input-container">
+        <input 
+          type="text" 
+          className="task-input"
+          placeholder="What needs to be done?"
+          value={task} 
+          onChange={(e) => { settask(e.target.value) }}
+          onKeyPress={handleKeyPress}
+        />
+        <button className="btn btn-primary" onClick={handleAdd}>
+          Add Task
+        </button>
+      </div>
 
-     <div className="button-group flex gap-4 justify-center mt-4">
-       <button className="bg-green-700 px-6 py-2 text-white" onClick={() => dispatch(increment())}>+</button>
-      <button className="bg-blue-700 px-6 py-2 text-white"  onClick={() => dispatch(decrement())}>-</button>
-      <button className="bg-red-700 px-6 py-2 text-white"  onClick={() => dispatch(reset())}>Reset</button>
-     </div>
+      {tasks.length === 0 ? (
+        <div className="empty-state">
+          <div className="empty-state-icon">📝</div>
+          <div className="empty-state-text">No tasks yet</div>
+          <div className="empty-state-subtext">Add a task to get started!</div>
+        </div>
+      ) : (
+        <>
+          <ul className="tasks-list">
+            {tasks.map((x, ind) => (
+              <li key={ind} className="task-item">
+                {editIndex === ind ? (
+                  <div className="edit-container">
+                    <input 
+                      type="text" 
+                      className="edit-input"
+                      value={updateText} 
+                      onChange={(e) => { setupdateText(e.target.value) }}
+                      onKeyDown={(e) => handleEditKeyPress(e, ind)}
+                      autoFocus
+                    />
+                    <button 
+                      className="btn btn-success" 
+                      onClick={() => { handleUpdate(ind) }}
+                    >
+                      Save
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <div className="task-content">
+                      <span className="task-text">{x}</span>
+                    </div>
+                    <div className="task-actions">
+                      <button 
+                        className="btn btn-secondary" 
+                        onClick={() => {
+                          seteditIndex(ind);
+                          setupdateText(x)
+                        }}
+                      >
+                        Edit
+                      </button>
+                      <button 
+                        className="btn btn-danger" 
+                        onClick={() => { dispatch(deleteTask(ind)) }}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+          <div className="task-count">
+            {tasks.length} {tasks.length === 1 ? 'task' : 'tasks'} total
+          </div>
+        </>
+      )}
     </div>
   );
-}
+};
 
-export default App;
+export default App
