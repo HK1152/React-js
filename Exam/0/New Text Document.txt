@@ -1,0 +1,124 @@
+React Js Practical Exam - Web
+Product Management App Project Outline
+
+
+
+﻿Instruction/Text linked with this question​1. Project Setup
+
+- Set up a new React project using Create React App.
+
+- Install required dependencies: `react-router-dom`, `redux`, `react-redux`, `redux-thunk`, ` tailwind`, `json-server`, etc.
+
+
+
+​2. Component Structure
+
+- Create the necessary components:
+
+- ProductList
+
+- ProductForm
+
+- ProductItem
+
+- PrivateRoute
+
+- Navbar
+
+- Implement the basic component structure for the product management app.
+
+
+
+​3. Redux Setup 
+
+- Set up the Redux store with actions, reducers, and thunks.
+
+- Define actions for fetching, adding, updating, and deleting products.
+
+- Implement thunks for asynchronous operations.
+
+
+
+​4. JSON Server Setup 
+
+- Set up a JSON Server to act as a backend for storing product data.
+
+- Create a `db.json` file to store initial product data.
+
+- Define routes for CRUD operations (e.g., `/products`).
+
+
+
+5. Fetching and Displaying Products 
+
+- Implement the `fetchProducts` function in the ProductList component.
+
+- Display products dynamically using the ProductItem component.
+
+- Connect the ProductList component to the Redux store to fetch product data from the server.
+
+
+
+6. Adding Products
+
+- Implement the `addProduct` function in the ProductForm component.
+
+- Validate that product details (title, price, image, category) are provided before adding a product.
+
+- Dispatch a Redux action and thunk to add the product to the server and store.
+
+
+
+7. Updating Products 
+
+- Develop the `updateProduct` function in the ProductItem component to allow users to edit existing products.
+
+- Identify a unique identifier for each product to ensure accurate updating.
+
+- Dispatch a Redux action and thunk to update the product on the server and in the store.
+
+
+
+​8. Deleting Products 
+
+- Implement the `deleteProduct` function in the ProductItem component to allow users to remove products.
+
+- Dispatch a Redux action and thunk to delete the product from the server and store.
+
+
+
+​9. Sorting, Searching, and Filtering 
+
+- Implement sorting feature by price (low to high, high to low) in the ProductList component.
+
+- Add searching feature by product title in the ProductList component.
+
+- Implement filtering feature by category in the ProductList component.
+
+
+
+​10. User Authentication 
+
+- Implement a simple user authentication mechanism.
+
+- Restrict access to product-related operations based on user authentication status.
+
+
+
+​11. Navbar
+
+- Create a Navbar component to provide navigation within the application.
+
+- Include links to the product list, product form, and a sign-out option (if applicable).
+
+- Ensure the Navbar is responsive and visually appealing.
+
+
+
+​12. tailwind Styling 
+
+- Utilize Bootstrap I components for a modern and clean UI.
+
+- Apply styling and theming to enhance the overall look and feel of the application.
+
+

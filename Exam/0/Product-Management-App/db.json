@@ -1,0 +1,14 @@
+{
+  "products": [
+    { "id": "1", "title": "Laptop", "price": 1200, "image": "https://via.placeholder.com/150", "category": "Electronics" },
+    { "id": "2", "title": "Mouse", "price": 25, "image": "https://via.placeholder.com/150", "category": "Electronics" },
+    { "id": "3", "title": "Keyboard", "price": 75, "image": "https://via.placeholder.com/150", "category": "Electronics" },
+    { "id": "4", "title": "Monitor", "price": 300, "image": "https://via.placeholder.com/150", "category": "Electronics" },
+    { "id": "5", "title": "Desk Chair", "price": 150, "image": "https://via.placeholder.com/150", "category": "Furniture" },
+    { "id": "6", "title": "Webcam", "price": 50, "image": "https://via.placeholder.com/150", "category": "Electronics" },
+    { "id": "7", "title": "Headphones", "price": 100, "image": "https://via.placeholder.com/150", "category": "Electronics" },
+    { "id": "8", "title": "Printer", "price": 200, "image": "https://via.placeholder.com/150", "category": "Electronics" },
+    { "id": "9", "title": "External Hard Drive", "price": 80, "image": "https://via.placeholder.com/150", "category": "Electronics" },
+    { "id": "10", "title": "Coffee Mug", "price": 10, "image": "https://via.placeholder.com/150", "category": "Home Goods" }
+  ]
+}
