@@ -1,56 +1,76 @@
-import { useContext, useEffect, useState } from "react";
-import "./App.css";
-import Login from "./Components/Auth/Login";
-import EmpDashboard from "./Components/DashBoard/empDashboard";
-import AdminDashboard from "./Components/DashBoard/adminDashboard";
-import { getLocalStorages, setLocalStorages } from "./Utils/LocalStorage";
-import { AuthContext } from "./context/AuthProvider";
+import { useState } from "react";
+import "./index.css";
 
+import Login        from "./pages/Login";
+import Sidebar      from "./components/layout/Sidebar";
+import Topbar       from "./components/layout/Topbar";
+import Dashboard    from "./pages/Dashboard";
+import Employees    from "./pages/Employees";
+import Attendance   from "./pages/Attendance";
+import Leave        from "./pages/Leave";
+import Payroll      from "./pages/Payroll";
+import Reports      from "./pages/Reports";
+import Settings     from "./pages/Settings";
+import Unauthorized from "./components/auth/Unauthorized";
+import { canAccessPage } from "./Utils/roles";
 
-function App() {
-  const [User, setUser] = useState(null)
-  const [loggedInUserData, setLoggedInUserData] = useState(null)
-  const [userData,setUserData] = useContext(AuthContext)
+const pages = { dashboard: Dashboard, employees: Employees, attendance: Attendance, leave: Leave, payroll: Payroll, reports: Reports, settings: Settings };
 
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem("loggedInUser")
-    if (loggedInUser) {
-      const userData = JSON.parse(loggedInUser)
-      setUser(userData.role);
-      setLoggedInUserData(userData.data)
-      
+function DashboardLayout({ user, onLogout }) {
+  const [activePage,   setActivePage]   = useState("dashboard");
+  const [sidebarCollapsed, setCollapsed] = useState(false);
+  const [searchQuery,  setSearchQuery]  = useState("");
 
-      // console.log(userData);
-    }
-  }, []);
-
-
-  const handleLogin = (email, password) => {
-    if (email == 'priya@gmail.com' && password == '123')  {
-      setUser("admin")
-      localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin"}))
-    } else if (userData) {
-      const employee = userData.find((e) => email == e.email && e.password == password)//emp vo hai jo AuthProvider.jsx se ata hai, ye bhale hi inner fun. ho par ise {curly braces} mat dena warna vaha else wala part run joae ga
-      if (employee) {
-        setUser("employee"); 
-        setLoggedInUserData(employee); 
-        localStorage.setItem("loggedInUser", JSON.stringify({ role: "employee", data: employee }));
-      }
-    } else {
-      alert("galat hai bahi 😒");
-    }
-  };
+  const isAllowed = canAccessPage(activePage, user);
+  const PageComponent = pages[activePage] || Dashboard;
 
   return (
-    <>
-      {!User ? <Login handleLogin={handleLogin} /> : ''}
-       {User == 'admin' ? <AdminDashboard  changeUser={setUser}/> : (User == 'employee' ? <EmpDashboard  data={loggedInUserData} changeUser={setUser} /> : null)  }
-       
-
-      {/* <EmpDashboard /> */}
-      {/* <AdminDashboard /> */}
-    </>
+    <div className="ems-layout">
+      <Sidebar
+        active={activePage}
+        onNav={setActivePage}
+        collapsed={sidebarCollapsed}
+        onToggle={() => setCollapsed(c => !c)}
+        user={user}
+      />
+      <div className={`main-content ${sidebarCollapsed ? "sidebar-collapsed" : ""}`}>
+        <Topbar
+          activePage={activePage}
+          onSearch={setSearchQuery}
+          onLogout={onLogout}
+          user={user}
+        />
+        {isAllowed ? (
+          <PageComponent key={activePage} searchQuery={searchQuery} user={user} />
+        ) : (
+          <Unauthorized onBack={() => setActivePage("dashboard")} />
+        )}
+      </div>
+    </div>
   );
 }
 
-export default App;
+export default function App() {
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem("ems_user");
+    return saved ? JSON.parse(saved) : null;
+  });
+
+  const handleLogin = (role, userData) => {
+    const userObj = { 
+      role, 
+      ...userData,
+      name: userData.firstName || (role === "admin" ? "Hare Krishna" : "Employee")
+    };
+    localStorage.setItem("ems_user", JSON.stringify(userObj));
+    setUser(userObj);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("ems_user");
+    setUser(null);
+  };
+
+  if (!user) return <Login onLogin={handleLogin} />;
+  return <DashboardLayout user={user} onLogout={handleLogout} />;
+}

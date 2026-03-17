@@ -1,0 +1,57 @@
+# HK PRO - LinkedIn Post Prompts
+
+---
+
+### Option 1: Technical & Feature Focused (Best for Developers)
+
+Headline: Excited to share my latest project: HK PRO – A Premium Employee Management System! 🚀
+
+I’ve always been fascinated by how seamless SaaS dashboards work. So, I decided to build one from scratch using React.js and Tailwind CSS.
+
+Key Features of HK PRO:
+✅ Role-Based Access Control: Distinct views for Admins and Employees.
+✅ Dynamic Dashboard: Real-time stats, Attendance trends (Custom SVG Charts), and Performance tracking.
+✅ Core Modules: Fully functional Attendance, Payroll management, Leave requests, and Reports.
+✅ Premium UI/UX: Clean, modern interface with smooth micro-animations and a dark-mode-ready palette.
+✅ Session Persistence: Secure login with LocalStorage integration.
+
+Tech Stack: React.js, Vite, Lucide Icons, Tailwind CSS.
+
+This project helped me master complex state management and building reusable UI components. Check it out!
+
+#ReactJS #WebDevelopment #TailwindCSS #Frontend #SoftwareEngineering #HKPRO #EMS #Portfolio #Javascript
+
+---
+
+### Option 2: Design & Product Focused (Best for Recruiters/Designers)
+
+Headline: Rethinking Employee Management with HK PRO 💼✨
+
+Management tools don't have to be boring. With HK PRO, my goal was to create an Employee Management System (EMS) that feels as premium as a high-end SaaS product.
+
+From a custom-built Donut chart for department stats to a sleek, responsive sidebar layout, every element in HK PRO is designed for efficiency and aesthetics.
+
+Why HK PRO?
+🔹 Visual Depth: Used a curated color palette and glassmorphism elements.
+🔹 Data-Driven: Admins get a bird's-eye view of company performance instantly.
+🔹 User-Centric: Intuitive navigation for employees to track their tasks and attendance.
+
+I’m looking for feedback from the community! How do you like the UI?
+
+#UIUX #ProductDesign #SaaS #ReactJS #DashboardDesign #HKPRO #FrontendDeveloper
+
+---
+
+### Option 3: Short & Catchy (Best for Quick Engagement)
+
+Headline: Say hello to HK PRO! 👋 my new Employee Management System.
+
+I built this to solve a simple problem: making workspace management easy and beautiful. Built with React + Vite, it features:
+📊 Real-time Analytics
+🔐 Secure Admin/Employee Login
+📅 Attendance & Payroll Tracking
+🎨 Premium Design System
+
+Special thanks to the community for the continuous learning. On to the next challenge! 🛠️
+
+#Coding #React #Vite #WebDev #ProjectShowcase #HKPRO

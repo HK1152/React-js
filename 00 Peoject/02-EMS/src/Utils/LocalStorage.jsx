@@ -245,14 +245,14 @@ const employees = [
 const admin = [
   {
     id: 1,
-    firstName: "Priya",
-    email: "priya@gmail.com",
+    firstName: "Hare Krishna",
+    email: "hk1152@hk.com",
     password: "123",
   },
 ];
 
-  // localStorage.setItem("employees", JSON.stringify(employees));
-  // localStorage.setItem("admin", JSON.stringify(admin)); 
+// localStorage.setItem("employees", JSON.stringify(employees));
+// localStorage.setItem("admin", JSON.stringify(admin)); 
 
 export const setLocalStorages = () => {
   localStorage.setItem("employees", JSON.stringify(employees));
