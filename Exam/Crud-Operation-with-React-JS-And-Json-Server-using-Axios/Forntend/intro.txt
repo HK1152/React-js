@@ -1,0 +1,21 @@
+React JS
+
+__________________________________________________
+Notice:
+- Please try All the Step complete before deadline
+- you can use JSON server
+- Try to make all task complete in 1 Hour
+___________________________________________________________________________
+Crud Operation with React JS & Json Server using Axios
+Step:1 Make Crud Operations with Below Fields
+- Name - 3 or more character required
+- email – not blank or enter valid email
+- phone – only numbers are allowed
+- image – not blank and set the link online image
+Step:2 Validate the form for each fields using custom
+Step:3 Searching by name or email or phone
+Step:4 Pagination Also working mention in image
+Step:5 Searching with Pagination Also Working
+Step:6 Show 5,10 or 15 record when user select it
+Step:7 Soft delete also Working
+In soft delete you have to use status field (true or false)
